@@ -117,6 +117,9 @@ public final class QuoteSyncJob {
                             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                         }
                     });
+
+                    // The symbol was already added to shared preferences.  It's invalid so remove it
+                    PrefUtils.removeStock(context, symbol);
                 }
             }
 
