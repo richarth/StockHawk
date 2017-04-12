@@ -1,16 +1,17 @@
-<resources>
-    <string name="app_name">Stock Hawk</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">الأسهم، هوك</string>
 
-    <string name="dialog_title">Add Stock</string>
-    <string name="dialog_hint">Symbol (e.g. GOOG)</string>
-    <string name="dialog_cancel">Cancel</string>
-    <string name="dialog_add">Add</string>
+    <string name="dialog_title">إضافة سهم</string>
+    <string name="dialog_hint">رمزالرمز (مثل غوغ)</string>
+    <string name="dialog_cancel">إلغاء</string>
+    <string name="dialog_add">إضافة</string>
+    <string name="add_symbol">إضافة رمز</string>
 
-    <string name="error_no_network">No network connectivity! Will load stock cursor when the network is available.</string>
-    <string name="error_no_stocks">No stocks added! Hit the floating action button to add one.</string>
+    <string name="error_no_network">لا اتصال الشبكة! سيتم تحميل مؤشر الأسهم عندما تكون الشبكة متاحة.</string>
+    <string name="error_no_stocks">لم يتم إضافة أي أسهم! ضرب زر العمل العائمة لإضافة واحد.</string>
 
-    <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
-    <string name="toast_no_connectivity">Will refresh when network available.</string>
-    <string name="toast_stock_not_added">Symbol %s doesn\'t exist.</string>
+    <string name="toast_stock_added_no_connectivity">تمت إضافة <xliff:g id="symbol" example="GOOG">%s</xliff:g> الرمز. سيتم تحديث عندما الشبكة المتاحة.</string>
+    <string name="toast_no_connectivity">سيتم تحديث عندما الشبكة المتاحة.</string>
+    <string name="toast_stock_not_added">الرمز <xliff:g id="symbol" example="GOOG">%s</xliff:g> غير موجود.</string>
 
 </resources>
