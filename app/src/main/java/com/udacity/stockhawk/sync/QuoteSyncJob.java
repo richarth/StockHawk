@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
 import com.udacity.stockhawk.R;
@@ -42,7 +44,7 @@ public final class QuoteSyncJob {
     private QuoteSyncJob() {
     }
 
-    static void getQuotes(Context context) {
+    static void getQuotes(final Context context) {
 
         Timber.d("Running sync job");
 
@@ -107,8 +109,14 @@ public final class QuoteSyncJob {
 
                     quoteCVs.add(quoteCV);
                 } else {
-                    String message = context.getString(R.string.toast_stock_not_added, symbol);
-                    Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+                    final String message = context.getString(R.string.toast_stock_not_added, symbol);
+
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
 
