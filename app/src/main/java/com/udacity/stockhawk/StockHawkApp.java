@@ -2,6 +2,8 @@ package com.udacity.stockhawk;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
+
 import timber.log.Timber;
 
 public class StockHawkApp extends Application {
@@ -13,6 +15,13 @@ public class StockHawkApp extends Application {
         if (BuildConfig.DEBUG) {
             Timber.uprootAll();
             Timber.plant(new Timber.DebugTree());
+
+            if (LeakCanary.isInAnalyzerProcess(this)) {
+                // This process is dedicated to LeakCanary for heap analysis.
+                // You should not init your app in this process.
+                return;
+            }
+            LeakCanary.install(this);
         }
     }
 }
