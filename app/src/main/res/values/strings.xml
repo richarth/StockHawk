@@ -30,8 +30,12 @@
     <string name="error_no_network">No network connectivity! Will load stock cursor when the network is available.</string>
     <string name="error_no_stocks">No stocks added! Hit the floating action button to add one.</string>
 
-    <string name="toast_stock_added_no_connectivity">Symbol <xliff:g id="symbol" example="GOOG">%s</xliff:g> added. Will refresh when network available.</string>
+    <string name="toast_stock_added_no_connectivity">Symbol <xliff:g example="GOOG" id="symbol">%s</xliff:g> added. Will refresh when network available.</string>
     <string name="toast_no_connectivity">Will refresh when network available.</string>
-    <string name="toast_stock_not_added">Symbol <xliff:g id="symbol" example="GOOG">%s</xliff:g> doesn\'t exist.</string>
+    <string name="toast_stock_not_added">Symbol <xliff:g example="GOOG" id="symbol">%s</xliff:g> doesn\'t exist.</string>
+
+    <string name="widget_title">Latest Stock Prices</string>
+
+    <string name="empty_stocks_list">No stocks information available</string>
 
 </resources>

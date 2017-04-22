@@ -14,4 +14,8 @@
     <string name="toast_no_connectivity">سيتم تحديث عندما الشبكة المتاحة.</string>
     <string name="toast_stock_not_added">الرمز <xliff:g id="symbol" example="GOOG">%s</xliff:g> غير موجود.</string>
 
+    <string name="widget_title">آخر أسعار الأسهم</string>
+
+    <string name="empty_stocks_list">لا توجد معلومات عن الأسهم المتاحة</string>
+
 </resources>
