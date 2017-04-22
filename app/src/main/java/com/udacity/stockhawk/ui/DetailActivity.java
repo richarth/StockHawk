@@ -7,6 +7,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.View;
 
@@ -59,6 +60,8 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         ButterKnife.bind(this);
 
         stockSymbol = getIntent().getStringExtra(ARG_SYMBOL);
+
+        getSupportActionBar().setTitle(stockSymbol);
 
         getSupportLoaderManager().initLoader(STOCK_LOADER, null, this);
     }
