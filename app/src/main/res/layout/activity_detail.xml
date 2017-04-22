@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.github.mikephil.charting.charts.LineChart
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.udacity.stockhawk.ui.DetailActivity">
-
-</android.support.constraint.ConstraintLayout>
+    android:layout_margin="@dimen/activity_horizontal_margin"/>

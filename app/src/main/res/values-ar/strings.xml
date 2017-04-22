@@ -18,4 +18,6 @@
 
     <string name="empty_stocks_list">لا توجد معلومات عن الأسهم المتاحة</string>
 
+    <string name="chart_label"><xliff:g example="GOOG" id="symbol">%s</xliff:g>\'s quarterly price for the last two years"</string>
+
 </resources>
