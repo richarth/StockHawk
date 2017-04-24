@@ -75,9 +75,9 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
 
             @Override
             public RemoteViews getViewAt(int position) {
-                if (position == AdapterView.INVALID_POSITION ||
-                        data == null ||
-                        !data.moveToPosition(position)) {
+                if (position == AdapterView.INVALID_POSITION
+                        || data == null
+                        || !data.moveToPosition(position)) {
                     return null;
                 }
                 RemoteViews views = new RemoteViews(getPackageName(),
