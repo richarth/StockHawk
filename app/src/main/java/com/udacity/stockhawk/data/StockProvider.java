@@ -16,7 +16,7 @@ public class StockProvider extends ContentProvider {
     private static final int QUOTE = 100;
     private static final int QUOTE_FOR_SYMBOL = 101;
 
-    private static final UriMatcher uriMatcher = buildUriMatcher();
+    private static final UriMatcher URI_MATCHER = buildUriMatcher();
 
     private DbHelper dbHelper;
 
@@ -40,7 +40,7 @@ public class StockProvider extends ContentProvider {
         Cursor returnCursor;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        switch (uriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
             case QUOTE:
                 returnCursor = db.query(
                         Contract.Quote.TABLE_NAME,
@@ -89,7 +89,7 @@ public class StockProvider extends ContentProvider {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Uri returnUri;
 
-        switch (uriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
             case QUOTE:
                 db.insert(
                         Contract.Quote.TABLE_NAME,
@@ -118,7 +118,7 @@ public class StockProvider extends ContentProvider {
         if (null == selection) {
             selection = "1";
         }
-        switch (uriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
             case QUOTE:
                 rowsDeleted = db.delete(
                         Contract.Quote.TABLE_NAME,
@@ -160,7 +160,7 @@ public class StockProvider extends ContentProvider {
 
         final SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        switch (uriMatcher.match(uri)) {
+        switch (URI_MATCHER.match(uri)) {
             case QUOTE:
                 db.beginTransaction();
                 int returnCount = 0;
