@@ -23,7 +23,6 @@ import static com.udacity.stockhawk.data.Contract.Quote.POSITION_PERCENTAGE_CHAN
 import static com.udacity.stockhawk.data.Contract.Quote.POSITION_PRICE;
 import static com.udacity.stockhawk.data.Contract.Quote.POSITION_SYMBOL;
 import static com.udacity.stockhawk.data.Contract.Quote.QUOTE_COLUMNS;
-import static com.udacity.stockhawk.ui.DetailActivity.ARG_SYMBOL;
 
 /**
  * Created by richardthompson on 22/04/2017.
@@ -122,7 +121,8 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                 }
 
                 final Intent fillInIntent = new Intent();
-                fillInIntent.putExtra(ARG_SYMBOL, stockSymbol);
+                Uri stockUri = Contract.Quote.makeUriForStock(stockSymbol);
+                fillInIntent.setData(stockUri);
                 views.setOnClickFillInIntent(R.id.list_item_quote, fillInIntent);
 
                 return views;

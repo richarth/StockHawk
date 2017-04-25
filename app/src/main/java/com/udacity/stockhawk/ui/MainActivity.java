@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -50,7 +51,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Timber.d("Symbol clicked: %s", symbol);
 
         Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra(DetailActivity.ARG_SYMBOL, symbol);
+
+        Uri stockUri = Contract.Quote.makeUriForStock(symbol);
+        intent.setData(stockUri);
 
         startActivity(intent);
     }

@@ -2,6 +2,7 @@ package com.udacity.stockhawk.ui;
 
 import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -36,8 +37,6 @@ import butterknife.ButterKnife;
 
 public class DetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    public static final String ARG_SYMBOL = "stock_symbol";
-
     private static final int STOCK_LOADER = 0;
 
     private Cursor mCursor;
@@ -53,7 +52,9 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
-        stockSymbol = getIntent().getStringExtra(ARG_SYMBOL);
+        Uri stockUri = getIntent().getData();
+
+        stockSymbol = Contract.Quote.getStockFromUri(stockUri);
 
         getSupportActionBar().setTitle(stockSymbol);
 
