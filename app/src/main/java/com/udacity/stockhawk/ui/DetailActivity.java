@@ -46,13 +46,15 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     @BindView(R.id.chart)
     LineChart lineChart;
 
+    private Uri stockUri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
-        Uri stockUri = getIntent().getData();
+        stockUri = getIntent().getData();
 
         stockSymbol = Contract.Quote.getStockFromUri(stockUri);
 
@@ -64,7 +66,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(this,
-                Contract.Quote.makeUriForStock(stockSymbol),
+                stockUri,
                 Contract.Quote.QUOTE_COLUMNS.toArray(new String[]{}),
                 null, null, Contract.Quote.COLUMN_SYMBOL);
     }
