@@ -123,7 +123,7 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                 final Intent fillInIntent = new Intent();
                 Uri stockUri = Contract.Quote.makeUriForStock(stockSymbol);
                 fillInIntent.setData(stockUri);
-                views.setOnClickFillInIntent(R.id.widget_list_tem, fillInIntent);
+                views.setOnClickFillInIntent(R.id.widget_list_item, fillInIntent);
 
                 return views;
             }
