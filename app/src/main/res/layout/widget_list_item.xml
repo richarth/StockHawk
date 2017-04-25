@@ -7,7 +7,7 @@
     android:orientation="horizontal"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:background="?attr/selectableItemBackground">
+    android:id="@+id/widget_list_tem">
 
     <TextView
         android:id="@+id/symbol"
