@@ -81,7 +81,7 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                     return null;
                 }
                 RemoteViews views = new RemoteViews(getPackageName(),
-                        R.layout.list_item_quote);
+                        R.layout.widget_list_item);
 
                 DecimalFormat dollarFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
                 DecimalFormat dollarFormatWithPlus = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
@@ -123,14 +123,14 @@ public class StocksWidgetRemoteViewsService extends RemoteViewsService {
                 final Intent fillInIntent = new Intent();
                 Uri stockUri = Contract.Quote.makeUriForStock(stockSymbol);
                 fillInIntent.setData(stockUri);
-                views.setOnClickFillInIntent(R.id.list_item_quote, fillInIntent);
+                views.setOnClickFillInIntent(R.id.widget_list_item, fillInIntent);
 
                 return views;
             }
 
             @Override
             public RemoteViews getLoadingView() {
-                return new RemoteViews(getPackageName(), R.layout.list_item_quote);
+                return new RemoteViews(getPackageName(), R.layout.widget_list_item);
             }
 
             @Override
