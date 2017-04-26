@@ -180,13 +180,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         lineChart.invalidate();
     }
 
-    private String getDate(long time) {
-        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-        cal.setTimeInMillis(time);
-
-        return DateFormat.format("dd-MM-yyyy", cal).toString();
-    }
-
     private int getMonth(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(time);
