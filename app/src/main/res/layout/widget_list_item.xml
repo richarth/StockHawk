@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start|center_vertical"
-        tools:text="GOOG" />
+        tools:text="GOOG"
+        android:textColor="@android:color/black"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -29,7 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10sp"
-            tools:text="1000.00" />
+            tools:text="1000.00"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/change"
