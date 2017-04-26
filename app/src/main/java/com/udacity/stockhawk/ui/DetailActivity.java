@@ -43,6 +43,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
     private String stockSymbol;
 
+    @SuppressWarnings("WeakerAccess")
     @BindView(R.id.chart)
     LineChart lineChart;
 
