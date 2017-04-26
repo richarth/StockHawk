@@ -13,7 +13,7 @@ import java.util.Locale;
  */
 
 class ChartValueFormatter implements IValueFormatter {
-    private DecimalFormat mFormat;
+    private final DecimalFormat mFormat;
 
     public ChartValueFormatter() {
         mFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
