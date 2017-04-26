@@ -12,7 +12,7 @@ import java.util.Locale;
  * Created by richardthompson on 22/04/2017.
  */
 
-public class ChartValueFormatter implements IValueFormatter {
+class ChartValueFormatter implements IValueFormatter {
     private DecimalFormat mFormat;
 
     public ChartValueFormatter() {
