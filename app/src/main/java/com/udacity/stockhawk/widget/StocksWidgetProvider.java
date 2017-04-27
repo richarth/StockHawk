@@ -18,10 +18,6 @@ import com.udacity.stockhawk.ui.MainActivity;
 
 import static com.udacity.stockhawk.sync.QuoteSyncJob.ACTION_DATA_UPDATED;
 
-/**
- * Created by richardthompson on 22/04/2017.
- */
-
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class StocksWidgetProvider extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {

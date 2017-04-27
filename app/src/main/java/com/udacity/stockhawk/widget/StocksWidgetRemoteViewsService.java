@@ -24,10 +24,6 @@ import static com.udacity.stockhawk.data.Contract.Quote.POSITION_PRICE;
 import static com.udacity.stockhawk.data.Contract.Quote.POSITION_SYMBOL;
 import static com.udacity.stockhawk.data.Contract.Quote.QUOTE_COLUMNS;
 
-/**
- * Created by richardthompson on 22/04/2017.
- */
-
 public class StocksWidgetRemoteViewsService extends RemoteViewsService {
 
     @Override

@@ -8,10 +8,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-/**
- * Created by richardthompson on 22/04/2017.
- */
-
 class ChartValueFormatter implements IValueFormatter {
     private final DecimalFormat mFormat;
 
