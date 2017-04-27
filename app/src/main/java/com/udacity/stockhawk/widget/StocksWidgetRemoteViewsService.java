@@ -29,7 +29,6 @@ import static com.udacity.stockhawk.data.Contract.Quote.QUOTE_COLUMNS;
  */
 
 public class StocksWidgetRemoteViewsService extends RemoteViewsService {
-    public static final String LOG_TAG = StocksWidgetRemoteViewsService.class.getSimpleName();
 
     @Override
     public RemoteViewsService.RemoteViewsFactory onGetViewFactory(Intent intent) {
