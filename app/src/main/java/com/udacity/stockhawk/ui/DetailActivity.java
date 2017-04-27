@@ -117,7 +117,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 }
             }
 
-            IAxisValueFormatter xAxisformatter = new IAxisValueFormatter() {
+            IAxisValueFormatter xAxisFormatter = new IAxisValueFormatter() {
 
                 @Override
                 public String getFormattedValue(float value, AxisBase axis) {
@@ -127,7 +127,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
             XAxis xAxis = lineChart.getXAxis();
             xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
-            xAxis.setValueFormatter(xAxisformatter);
+            xAxis.setValueFormatter(xAxisFormatter);
             xAxis.setTextColor(Color.WHITE);
 
             final DecimalFormat dollarFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(Locale.US);
