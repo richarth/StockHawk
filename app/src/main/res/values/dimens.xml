@@ -3,4 +3,5 @@
     <dimen name="widget_default_height">120dp</dimen>
     <dimen name="widget_default_width">240dp</dimen>
     <dimen name="widget_margin">8dp</dimen>
+    <dimen name="quotes_list_width">300dp</dimen>
 </resources>

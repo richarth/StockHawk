@@ -46,16 +46,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     TextView error;
     private StockAdapter adapter;
 
+    private boolean mTwoPane;
+
     @Override
     public void onClick(String symbol) {
         Timber.d("Symbol clicked: %s", symbol);
 
-        Intent intent = new Intent(this, DetailActivity.class);
-
         Uri stockUri = Contract.Quote.makeUriForStock(symbol);
-        intent.setData(stockUri);
 
-        startActivity(intent);
+        if (mTwoPane) {
+            Bundle arguments = new Bundle();
+            arguments.putParcelable(DetailFragment.ARG_STOCK_SYMBOL, stockUri);
+            DetailFragment fragment = new DetailFragment();
+            fragment.setArguments(arguments);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.stock_detail_container, fragment)
+                    .commit();
+        } else {
+            Intent intent = new Intent(this, DetailActivity.class);
+
+            intent.setData(stockUri);
+
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -91,7 +104,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         }).attachToRecyclerView(stockRecyclerView);
 
-
+        if (findViewById(R.id.stock_detail_container) != null) {
+            mTwoPane = true;
+        }
     }
 
     private boolean networkUp() {
@@ -156,7 +171,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (data.getCount() != 0) {
             error.setVisibility(View.GONE);
         }
-        adapter.setCursor(data);
+
+        if (!data.isClosed()){
+            adapter.setCursor(data);
+        }
     }
 
 
