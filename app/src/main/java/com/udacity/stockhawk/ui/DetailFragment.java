@@ -39,7 +39,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.udacity.stockhawk.data.Contract.Quote.COLUMN_SYMBOL;
-import static com.udacity.stockhawk.data.Contract.Quote.POSITION_SYMBOL;
 
 /**
  * Created by richardthompson on 25/04/2017.
@@ -55,6 +54,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
     private String stockSymbol;
 
+    @SuppressWarnings({"WeakerAccess", "CanBeFinal"})
     @BindView(R.id.chart)
     LineChart lineChart;
 
