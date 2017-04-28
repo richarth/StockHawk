@@ -106,7 +106,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
             mCursor.moveToFirst();
 
-            float stockPrice = mCursor.getFloat(Contract.Quote.POSITION_PRICE);
             String stockHistory = mCursor.getString(Contract.Quote.POSITION_HISTORY);
 
             String[] stockClosingPrices = stockHistory.split("\n");
@@ -126,8 +125,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
                 long datesTimestamp = Long.parseLong(daysDataParts[0]);
                 int quoteMonth = getMonth(datesTimestamp);
                 String daysStockPrice = daysDataParts[1];
-
-                String quoteDate = getDate(datesTimestamp);
 
                 // Show the oldest date and every 3 months subsequently
                 if (previousQuartersMonth == 0 || previousQuartersMonth == quoteMonth) {
@@ -208,13 +205,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         lineChart.notifyDataSetChanged();
 
         lineChart.invalidate();
-    }
-
-    private String getDate(long time) {
-        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-        cal.setTimeInMillis(time);
-
-        return DateFormat.format("dd-MM-yyyy", cal).toString();
     }
 
     private int getMonth(long time) {
