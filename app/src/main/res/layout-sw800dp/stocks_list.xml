@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerVertical"
+    android:orientation="vertical"
+    android:showDividers="middle"
+    tools:context=".ui.MainActivity">
+
+    <!--
+    This layout is a two-pane layout for the Items
+    master/detail flow.
+
+    -->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:name=".ui.MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/quotes_list_width"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".ui.MainActivity"
+        tools:listitem="@layout/list_item_quote" />
+
+    <FrameLayout
+        android:id="@+id/stock_detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+</LinearLayout>

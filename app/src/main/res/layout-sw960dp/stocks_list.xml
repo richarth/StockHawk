@@ -17,16 +17,15 @@
 
     -->
 
-    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:name="com.example.richardthompson.masterdetailtest.ItemListFragment"
+        android:name=".ui.MainActivity"
         android:layout_width="@dimen/quotes_list_width"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.example.richardthompson.masterdetailtest.ItemListActivity"
+        tools:context=".ui.MainActivity"
         tools:listitem="@layout/list_item_quote" />
 
     <FrameLayout
