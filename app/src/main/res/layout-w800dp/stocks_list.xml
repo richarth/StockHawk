@@ -6,13 +6,13 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:baselineAligned="false"
-    android:divider="?android:attr/dividerVertical"
+    android:divider="?android:attr/dividerHorizontal"
     android:orientation="vertical"
     android:showDividers="middle"
     tools:context=".ui.MainActivity">
 
     <!--
-    This layout is a two-pane layout for the Items
+    This layout is a two-pane layout for the Quotes
     master/detail flow.
 
     -->
