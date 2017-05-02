@@ -40,10 +40,6 @@ import butterknife.ButterKnife;
 
 import static com.udacity.stockhawk.data.Contract.Quote.COLUMN_SYMBOL;
 
-/**
- * Created by richardthompson on 25/04/2017.
- */
-
 public class DetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public static final String ARG_STOCK_SYMBOL = "stock_symbol";
