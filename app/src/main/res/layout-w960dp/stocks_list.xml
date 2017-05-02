@@ -12,7 +12,7 @@
     tools:context=".ui.MainActivity">
 
     <!--
-    This layout is a two-pane layout for the Items
+    This layout is a two-pane layout for the Quotes
     master/detail flow.
 
     -->
