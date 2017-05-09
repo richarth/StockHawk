@@ -4,4 +4,10 @@
     <dimen name="widget_default_width">280dp</dimen>
     <dimen name="widget_margin">8dp</dimen>
     <dimen name="quotes_list_width">300dp</dimen>
+    <dimen name="change_pill_padding">3dp</dimen>
+    <dimen name="stock_edit_horizontal_margin">4dp</dimen>
+    <dimen name="stock_edit_bottom_margin">4dp</dimen>
+    <dimen name="stock_edit_top_margin">16dp</dimen>
+    <dimen name="stock_price_padding">10dp</dimen>
+    <dimen name="widget_heading_height">64dp</dimen>
 </resources>

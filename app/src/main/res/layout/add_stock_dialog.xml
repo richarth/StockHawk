@@ -8,12 +8,12 @@
         android:id="@+id/dialog_stock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="@dimen/stock_edit_bottom_margin"
+        android:layout_marginLeft="@dimen/stock_edit_horizontal_margin"
+        android:layout_marginStart="@dimen/stock_edit_horizontal_margin"
+        android:layout_marginRight="@dimen/stock_edit_horizontal_margin"
+        android:layout_marginEnd="@dimen/stock_edit_horizontal_margin"
+        android:layout_marginTop="@dimen/stock_edit_top_margin"
         android:hint="@string/dialog_hint"
         android:inputType="textCapCharacters" />
 
