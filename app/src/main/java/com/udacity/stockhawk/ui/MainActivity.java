@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             error.setVisibility(View.GONE);
         }
 
-        if (!data.isClosed()){
+        if (!data.isClosed()) {
             adapter.setCursor(data);
         }
     }
