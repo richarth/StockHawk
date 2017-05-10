@@ -12,6 +12,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.firebase.jobdispatcher.Constraint;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Lifetime;
+import com.firebase.jobdispatcher.RetryStrategy;
+import com.firebase.jobdispatcher.Trigger;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
@@ -34,9 +41,15 @@ import yahoofinance.quotes.stock.StockQuote;
 
 public final class QuoteSyncJob {
 
+//    public static final String ACTION_DATA_UPDATED = "com.udacity.stockhawk.ACTION_DATA_UPDATED";
+//    private static final int PERIOD = 300;
+//    private static final String PERIODIC_ID = "stock_hawk_periodic";
+//    private static final String ONE_OFF_ID = "stock_hawk_one_off";
+//    private static final int YEARS_OF_HISTORY = 2;
+
     private static final int ONE_OFF_ID = 2;
     public static final String ACTION_DATA_UPDATED = "com.udacity.stockhawk.ACTION_DATA_UPDATED";
-    private static final int PERIOD = 300000;
+    private static final int PERIOD = 10000;
     private static final int INITIAL_BACKOFF = 10000;
     private static final int PERIODIC_ID = 1;
     private static final int YEARS_OF_HISTORY = 2;
@@ -139,7 +152,6 @@ public final class QuoteSyncJob {
     private static void schedulePeriodic(Context context) {
         Timber.d("Scheduling a periodic task");
 
-
         JobInfo.Builder builder = new JobInfo.Builder(PERIODIC_ID, new ComponentName(context, QuoteJobService.class));
 
 
@@ -151,6 +163,23 @@ public final class QuoteSyncJob {
         JobScheduler scheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
 
         scheduler.schedule(builder.build());
+
+//        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(context));
+//
+//        Job periodicJob = dispatcher.newJobBuilder()
+//                .setService(QuoteJobService.class)
+//                .setTag(PERIODIC_ID)
+//                .setRecurring(true)
+//                .setLifetime(Lifetime.FOREVER)
+//                .setTrigger(Trigger.executionWindow(0, PERIOD))
+//                .setReplaceCurrent(false)
+//                .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
+//                .setConstraints(
+//                        Constraint.ON_ANY_NETWORK
+//                )
+//                .build();
+//
+//        dispatcher.mustSchedule(periodicJob);
     }
 
 
@@ -170,7 +199,6 @@ public final class QuoteSyncJob {
             Intent nowIntent = new Intent(context, QuoteIntentService.class);
             context.startService(nowIntent);
         } else {
-
             JobInfo.Builder builder = new JobInfo.Builder(ONE_OFF_ID, new ComponentName(context, QuoteJobService.class));
 
 
@@ -182,9 +210,22 @@ public final class QuoteSyncJob {
 
             scheduler.schedule(builder.build());
 
-
+//            FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(context));
+//
+//            Job singleJob = dispatcher.newJobBuilder()
+//                    .setService(QuoteJobService.class)
+//                    .setTag(ONE_OFF_ID)
+//                    .setRecurring(false)
+//                    .setLifetime(Lifetime.UNTIL_NEXT_BOOT)
+//                    .setTrigger(Trigger.executionWindow(0, PERIOD))
+//                    .setReplaceCurrent(false)
+//                    .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
+//                    .setConstraints(
+//                            Constraint.ON_ANY_NETWORK
+//                    )
+//                    .build();
+//
+//            dispatcher.mustSchedule(singleJob);
         }
     }
-
-
 }
