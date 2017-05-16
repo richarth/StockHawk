@@ -37,7 +37,8 @@
         app:fabSize="normal"
         app:pressedTranslationZ="12dp"
         android:contentDescription="@string/add_symbol"
-        android:accessibilityTraversalBefore="@+id/swipe_refresh"/>
+        android:accessibilityTraversalBefore="@+id/swipe_refresh"
+        tools:ignore="UnusedAttribute" />
 
     <TextView
         android:id="@+id/error"
