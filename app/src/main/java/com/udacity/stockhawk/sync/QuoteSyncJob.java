@@ -80,10 +80,11 @@ public final class QuoteSyncJob {
 
 
                 Stock stock = quotes.get(symbol);
-                StockQuote quote = stock.getQuote();
 
                 // Check if the stock exists
-                if (stock.getName() != null) {
+                if (stock != null && stock.getName() != null) {
+                    StockQuote quote = stock.getQuote();
+
                     float price = quote.getPrice().floatValue();
                     float change = quote.getChange().floatValue();
                     float percentChange = quote.getChangeInPercent().floatValue();
