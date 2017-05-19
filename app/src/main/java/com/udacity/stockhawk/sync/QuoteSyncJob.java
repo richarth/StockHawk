@@ -18,8 +18,10 @@ import com.firebase.jobdispatcher.RetryStrategy;
 import com.firebase.jobdispatcher.Trigger;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
+import com.udacity.stockhawk.data.DummyHistoryData;
 import com.udacity.stockhawk.data.PrefUtils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -78,7 +80,6 @@ public final class QuoteSyncJob {
             while (iterator.hasNext()) {
                 String symbol = iterator.next();
 
-
                 Stock stock = quotes.get(symbol);
 
                 // Check if the stock exists
@@ -89,17 +90,41 @@ public final class QuoteSyncJob {
                     float change = quote.getChange().floatValue();
                     float percentChange = quote.getChangeInPercent().floatValue();
 
+                    String stockHistoricalData;
+
                     // WARNING! Don't request historical data for a stock that doesn't exist!
                     // The request will hang forever X_x
-                    List<HistoricalQuote> history = stock.getHistory(from, to, Interval.WEEKLY);
 
-                    StringBuilder historyBuilder = new StringBuilder();
+                    try {
+                        List<HistoricalQuote> history = stock.getHistory(from, to, Interval.WEEKLY);
 
-                    for (HistoricalQuote it : history) {
-                        historyBuilder.append(it.getDate().getTimeInMillis());
-                        historyBuilder.append(", ");
-                        historyBuilder.append(it.getClose());
-                        historyBuilder.append("\n");
+                        StringBuilder historyBuilder = new StringBuilder();
+
+                        for (HistoricalQuote it : history) {
+                            historyBuilder.append(it.getDate().getTimeInMillis());
+                            historyBuilder.append(", ");
+                            historyBuilder.append(it.getClose());
+                            historyBuilder.append("\n");
+                        }
+
+                        stockHistoricalData = historyBuilder.toString();
+                    } catch (FileNotFoundException e) {
+                        // Couldn't fetch history as the API is down so use some historical data
+
+                        switch (symbol) {
+                            case "MSFT":
+                                stockHistoricalData = DummyHistoryData.MSFT_HISTORICAL_DATA;
+                                break;
+                            case "FB":
+                                stockHistoricalData = DummyHistoryData.FB_HISTORICAL_DATA;
+                                break;
+                            case "APPL":
+                                stockHistoricalData = DummyHistoryData.APPL_HISTORICAL_DATA;
+                                break;
+                            default:
+                                stockHistoricalData = DummyHistoryData.YHOO_HISTORICAL_DATA;
+                                break;
+                        }
                     }
 
                     ContentValues quoteCV = new ContentValues();
@@ -108,8 +133,7 @@ public final class QuoteSyncJob {
                     quoteCV.put(Contract.Quote.COLUMN_PERCENTAGE_CHANGE, percentChange);
                     quoteCV.put(Contract.Quote.COLUMN_ABSOLUTE_CHANGE, change);
 
-
-                    quoteCV.put(Contract.Quote.COLUMN_HISTORY, historyBuilder.toString());
+                    quoteCV.put(Contract.Quote.COLUMN_HISTORY, stockHistoricalData);
 
                     quoteCVs.add(quoteCV);
                 } else {
